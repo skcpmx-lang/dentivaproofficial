@@ -29,7 +29,7 @@ public partial class App : Application
         }
         catch (Exception exception)
         {
-            _logger?.LogCritical(exception, new EventId(901, "StartupFailed"), "Application startup failed.");
+            _logger?.LogCritical(new EventId(901, "StartupFailed"), exception, "Application startup failed.");
             MessageBox.Show(
                 "Dentiva Pro could not start. No clinic workflows are available in this foundation build. Check the local application log or contact support.",
                 "Dentiva Pro",
@@ -49,7 +49,7 @@ public partial class App : Application
         }
         catch (Exception exception)
         {
-            _logger?.LogError(exception, new EventId(902, "ShutdownFailed"), "The application host did not stop cleanly.");
+            _logger?.LogError(new EventId(902, "ShutdownFailed"), exception, "The application host did not stop cleanly.");
         }
         finally
         {
@@ -62,7 +62,7 @@ public partial class App : Application
 
     private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
-        _logger?.LogCritical(e.Exception, new EventId(903, "UnhandledUiException"), "Unhandled UI exception; allowing the process to terminate.");
+        _logger?.LogCritical(new EventId(903, "UnhandledUiException"), e.Exception, "Unhandled UI exception; allowing the process to terminate.");
         MessageBox.Show(
             "An unexpected error occurred. Dentiva Pro will close. Check the local application log before trying again.",
             "Dentiva Pro",
@@ -75,7 +75,7 @@ public partial class App : Application
     {
         if (e.ExceptionObject is Exception exception)
         {
-            _logger?.LogCritical(exception, new EventId(904, "UnhandledDomainException"), "An unhandled background exception occurred.");
+            _logger?.LogCritical(new EventId(904, "UnhandledDomainException"), exception, "An unhandled background exception occurred.");
         }
         else
         {

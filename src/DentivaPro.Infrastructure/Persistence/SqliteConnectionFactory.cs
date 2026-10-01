@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using DentivaPro.Application.Abstractions;
+using DentivaPro.Infrastructure.Security;
 using Microsoft.Data.Sqlite;
 
 namespace DentivaPro.Infrastructure.Persistence;

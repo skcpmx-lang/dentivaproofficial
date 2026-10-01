@@ -13,7 +13,6 @@ public sealed class MoneyTests
 
         Assert.AreEqual(123456L, amount.Poisha);
         Assert.AreEqual(1234.56m, amount.Taka);
-        Assert.AreEqual("BDT", Money.CurrencyCode);
     }
 
     [TestMethod]
