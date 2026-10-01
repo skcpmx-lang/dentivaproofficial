@@ -46,9 +46,16 @@ jobs:
         run: dotnet build DentivaPro.sln --configuration Release --no-restore
 
       - name: Verify EF migration snapshot matches the model
-        run: dotnet ef migrations has-pending-model-changes --project src/DentivaPro.Infrastructure/DentivaPro.Infrastructure.csproj --startup-project tools/DentivaPro.DbMigrations/DentivaPro.DbMigrations.csproj --no-build
+        id: verify-ef-migration
+        shell: pwsh
+        run: |
+          dotnet ef migrations has-pending-model-changes --project src/DentivaPro.Infrastructure/DentivaPro.Infrastructure.csproj --startup-project tools/DentivaPro.DbMigrations/DentivaPro.DbMigrations.csproj --no-build --verbose 2>&1 | Tee-Object -FilePath migration-check.log
+          if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+          }
 
       - name: Run foundation tests
+        if: ${{ success() || steps.verify-ef-migration.outcome == 'failure' }}
         run: dotnet test DentivaPro.sln --configuration Release --no-build --logger "trx;LogFileName=foundation-tests.trx"
 
       - name: Upload test evidence and generated package locks
@@ -59,5 +66,6 @@ jobs:
           path: |
             **/packages.lock.json
             **/TestResults/**/*.trx
+            migration-check.log
           if-no-files-found: ignore
           retention-days: 7
