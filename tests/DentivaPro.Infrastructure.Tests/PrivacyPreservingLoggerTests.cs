@@ -32,8 +32,8 @@ public sealed class PrivacyPreservingLoggerTests
                 "Sensitive Bengali patient name: রিমা",
                 "ERR_AUTH_DENIED");
             logger.LogError(
-                new InvalidOperationException("Sensitive record value: patient phone 01700000000"),
                 new EventId(43, "DatabaseFailure"),
+                new InvalidOperationException("Sensitive record value: patient phone 01700000000"),
                 "Database operation failed with {OperationCode}",
                 "DB_QUERY_FAILED");
         }

@@ -3,6 +3,7 @@ using System.Text;
 using DentivaPro.Application.Abstractions;
 using DentivaPro.Domain.Auditing;
 using DentivaPro.Infrastructure.Persistence;
+using DentivaPro.Infrastructure.Security;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
