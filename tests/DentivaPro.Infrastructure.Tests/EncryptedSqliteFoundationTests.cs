@@ -57,7 +57,7 @@ public sealed class EncryptedSqliteFoundationTests
         await correct.Initializer.InitializeAsync();
 
         var wrong = CreateFixture("clinic.db3", CreateKey(0x73));
-        await Assert.ThrowsExceptionAsync<SqliteException>(() => wrong.Initializer.InitializeAsync());
+        await Assert.ThrowsExactlyAsync<SqliteException>(() => wrong.Initializer.InitializeAsync());
     }
 
     [TestMethod]
