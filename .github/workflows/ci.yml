@@ -58,6 +58,38 @@ jobs:
         if: ${{ success() || steps.verify-ef-migration.outcome == 'failure' }}
         run: dotnet test DentivaPro.sln --configuration Release --no-build --logger "trx;LogFileName=foundation-tests.trx"
 
+      - name: Emit sanitized failure diagnostics
+        if: failure()
+        shell: pwsh
+        run: |
+          $diagnostics = [System.Collections.Generic.List[string]]::new()
+          if (Test-Path migration-check.log) {
+            $diagnostics.Add('EF migration check output:')
+            $diagnostics.AddRange([string[]](Get-Content migration-check.log | Where-Object { $_ -match '(?i)error|exception|failed|unable|not found|pending model changes' -and $_ -notmatch '(?i)password|data source|connection string' } | Select-Object -Last 20))
+          }
+          Get-ChildItem -Path . -Recurse -Filter '*.trx' -ErrorAction SilentlyContinue | ForEach-Object {
+            try {
+              [xml]$report = Get-Content -Raw $_.FullName
+              foreach ($result in $report.SelectNodes("//*[local-name()='UnitTestResult' and @outcome='Failed']")) {
+                $name = $result.GetAttribute('testName')
+                $messageNode = $result.SelectSingleNode(".//*[local-name()='ErrorInfo']/*[local-name()='Message']")
+                $message = if ($messageNode) { $messageNode.InnerText } else { 'No failure message was recorded.' }
+                $message = $message -replace '(?i)(password|pwd)\s*=\s*[^;\s]+', '$1=[redacted]'
+                $diagnostics.Add("Test failed: $name — $message")
+              }
+            } catch {
+              $diagnostics.Add("Unable to parse test result file $($_.Name).")
+            }
+          }
+          if ($diagnostics.Count -eq 0) {
+            $diagnostics.Add('The build or CI step failed without a captured EF or test diagnostic.')
+          }
+          Add-Content -Path $env:GITHUB_STEP_SUMMARY -Value ('### Sanitized foundation CI diagnostics' + [Environment]::NewLine + ($diagnostics -join [Environment]::NewLine))
+          foreach ($diagnostic in ($diagnostics | Select-Object -First 20)) {
+            $escaped = $diagnostic.Replace('%', '%25').Replace("`r", '%0D').Replace("`n", '%0A')
+            Write-Output "::error file=.github/workflows/ci.yml,line=1,title=Foundation CI diagnostic::$escaped"
+          }
+
       - name: Upload test evidence and generated package locks
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -66,6 +98,5 @@ jobs:
           path: |
             **/packages.lock.json
             **/TestResults/**/*.trx
-            migration-check.log
           if-no-files-found: ignore
           retention-days: 7
