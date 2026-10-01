@@ -1,0 +1,39 @@
+# .NET build/test output
+**/bin/
+**/obj/
+**/TestResults/
+*.user
+*.suo
+*.cache
+*.log
+*.jsonl
+.vs/
+
+# Local application data and encrypted databases
+*.db
+*.db3
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+*.db3-wal
+*.db3-shm
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.wal
+*.shm
+*.journal
+.database-key-*.tmp
+*.dpapi
+
+# IDE / local tooling
+.idea/
+.vscode/
+artifacts/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db

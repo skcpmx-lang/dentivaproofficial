@@ -1,0 +1,52 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Domain", "src\DentivaPro.Domain\DentivaPro.Domain.csproj", "{01234567-89AB-4CDE-8123-456789ABCDEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Application", "src\DentivaPro.Application\DentivaPro.Application.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Infrastructure", "src\DentivaPro.Infrastructure\DentivaPro.Infrastructure.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Desktop", "src\DentivaPro.Desktop\DentivaPro.Desktop.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Domain.Tests", "tests\DentivaPro.Domain.Tests\DentivaPro.Domain.Tests.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.Infrastructure.Tests", "tests\DentivaPro.Infrastructure.Tests\DentivaPro.Infrastructure.Tests.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentivaPro.DbMigrations", "tools\DentivaPro.DbMigrations\DentivaPro.DbMigrations.csproj", "{01234567-89AB-4CDE-8123-456789ABCDE5}"
+EndProject
+Global
+  GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|Any CPU = Debug|Any CPU
+    Release|Any CPU = Release|Any CPU
+  EndGlobalSection
+  GlobalSection(ProjectConfigurationPlatforms) = postSolution
+    {01234567-89AB-4CDE-8123-456789ABCDEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDEF}.Release|Any CPU.Build.0 = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE0}.Release|Any CPU.Build.0 = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE3}.Release|Any CPU.Build.0 = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE4}.Release|Any CPU.Build.0 = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+    {01234567-89AB-4CDE-8123-456789ABCDE5}.Release|Any CPU.Build.0 = Release|Any CPU
+  EndGlobalSection
+EndGlobal
