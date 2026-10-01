@@ -1,0 +1,138 @@
+<Window x:Class="DentivaPro.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dentiva Pro"
+        Width="1120"
+        Height="760"
+        MinWidth="860"
+        MinHeight="620"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BrushCanvas}"
+        FontFamily="{StaticResource FontFamilyLatin}"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        TextOptions.TextFormattingMode="Ideal">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="{StaticResource BrushSurface}"
+                BorderBrush="{StaticResource BrushBorder}"
+                BorderThickness="0,0,0,1">
+            <Grid Margin="28,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border Width="38"
+                        Height="38"
+                        CornerRadius="12"
+                        Background="{StaticResource BrushAccent}"
+                        VerticalAlignment="Center">
+                    <TextBlock Text="D"
+                               Foreground="White"
+                               FontSize="21"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+
+                <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="Dentiva Pro" FontSize="17" FontWeight="SemiBold" />
+                    <TextBlock Text="Foundation build" FontSize="11" Foreground="{StaticResource BrushMuted}" />
+                </StackPanel>
+
+                <Border Grid.Column="2"
+                        Padding="12,7"
+                        CornerRadius="14"
+                        Background="{StaticResource BrushAccentSoft}"
+                        VerticalAlignment="Center"
+                        AutomationProperties.Name="Offline-first local application foundation">
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="7" Height="7" Fill="{StaticResource BrushAccent}" VerticalAlignment="Center" />
+                        <TextBlock Text="  OFFLINE-FIRST FOUNDATION"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource BrushAccent}"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel MaxWidth="980" HorizontalAlignment="Center" Margin="48,54,48,40">
+                <TextBlock Text="Phase 1 · Foundation"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource BrushAccent}" />
+                <TextBlock Text="The application shell is in place."
+                           FontSize="32"
+                           FontWeight="SemiBold"
+                           Margin="0,12,0,0"
+                           TextWrapping="Wrap" />
+                <TextBlock Text="This build establishes the Windows app, encrypted-data boundary, security primitives, and shared visual tokens. Clinic workflows are not enabled in this phase."
+                           FontSize="15"
+                           Foreground="{StaticResource BrushMuted}"
+                           TextWrapping="Wrap"
+                           MaxWidth="740"
+                           Margin="0,12,0,0"
+                           LineHeight="25" />
+
+                <Border Margin="0,30,0,0"
+                        Padding="20"
+                        CornerRadius="14"
+                        Background="{StaticResource BrushSurface}"
+                        BorderBrush="{StaticResource BrushBorder}"
+                        BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="Foundation status" FontSize="14" FontWeight="SemiBold" />
+                        <TextBlock Text="No patient, appointment, clinical, prescription, billing, or inventory data is loaded or changed by this screen."
+                                   Margin="0,8,0,0"
+                                   FontSize="13"
+                                   Foreground="{StaticResource BrushMuted}"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <UniformGrid Columns="3" Margin="0,16,0,0">
+                    <Border Margin="0,0,8,0" Padding="18" CornerRadius="14" Background="{StaticResource BrushSurface}" BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="DATA BOUNDARY" FontSize="10" FontWeight="Bold" Foreground="{StaticResource BrushAccent}" />
+                            <TextBlock Text="Local encryption" FontSize="16" FontWeight="SemiBold" Margin="0,11,0,0" />
+                            <TextBlock Text="A random database key is protected for the current Windows profile."
+                                       FontSize="12" Foreground="{StaticResource BrushMuted}" TextWrapping="Wrap" Margin="0,7,0,0" LineHeight="19" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="8,0" Padding="18" CornerRadius="14" Background="{StaticResource BrushSurface}" BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="BANGLADESH" FontSize="10" FontWeight="Bold" Foreground="{StaticResource BrushAccent}" />
+                            <TextBlock Text="BDT · ৳" FontSize="16" FontWeight="SemiBold" Margin="0,11,0,0" />
+                            <TextBlock Text="Money primitives use integer poisha; display tokens include the taka symbol."
+                                       FontSize="12" Foreground="{StaticResource BrushMuted}" TextWrapping="Wrap" Margin="0,7,0,0" LineHeight="19" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="8,0,0,0" Padding="18" CornerRadius="14" Background="{StaticResource BrushSurface}" BorderBrush="{StaticResource BrushBorder}" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="UNICODE" FontSize="10" FontWeight="Bold" Foreground="{StaticResource BrushAccent}" />
+                            <TextBlock Text="বাংলা · Unicode" FontSize="17" FontFamily="{StaticResource FontFamilyBengali}" FontWeight="SemiBold" Margin="0,9,0,0" />
+                            <TextBlock Text="Bengali text is part of the presentation baseline; Windows font and DPI review remains outstanding."
+                                       FontSize="12" Foreground="{StaticResource BrushMuted}" TextWrapping="Wrap" Margin="0,7,0,0" LineHeight="19" />
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+
+                <TextBlock Text="No clinic workflows are available in this development build."
+                           FontSize="11"
+                           Foreground="{StaticResource BrushMuted}"
+                           HorizontalAlignment="Center"
+                           Margin="0,28,0,0" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

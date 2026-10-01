@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>DentivaPro.Infrastructure.Tests</RootNamespace>
+    <AssemblyName>DentivaPro.Infrastructure.Tests</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="MSTest.TestAdapter" />
+    <PackageReference Include="MSTest.TestFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/DentivaPro.Application/DentivaPro.Application.csproj" />
+    <ProjectReference Include="../../src/DentivaPro.Domain/DentivaPro.Domain.csproj" />
+    <ProjectReference Include="../../src/DentivaPro.Infrastructure/DentivaPro.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

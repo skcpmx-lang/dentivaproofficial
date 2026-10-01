@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>DentivaPro.Infrastructure</RootNamespace>
+    <AssemblyName>DentivaPro.Infrastructure</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../DentivaPro.Application/DentivaPro.Application.csproj" />
+    <ProjectReference Include="../DentivaPro.Domain/DentivaPro.Domain.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="NSec.Cryptography" />
+    <PackageReference Include="SQLite3MC.PCLRaw.bundle" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" />
+  </ItemGroup>
+</Project>
